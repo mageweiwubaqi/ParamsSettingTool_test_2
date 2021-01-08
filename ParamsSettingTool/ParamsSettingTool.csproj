@@ -7,14 +7,30 @@
     <ProjectGuid>{093306CD-850F-435A-A352-B14A9B9FB861}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ParamsSettingTool</RootNamespace>
+    <RootNamespace>ITL.ParamsSettingTool</RootNamespace>
     <AssemblyName>ParamsSettingTool</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +40,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,28 +48,386 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AppIcon_32.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ITL.ParamsSettingTool.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="Aspose.Cells, Version=20.7.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Cells.20.7.0\lib\net40\Aspose.Cells.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v15.1.Core, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraWizard.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualC" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>bin\Debug\DependentFiles\Delphi\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="DataDefine\Const\AppConst.cs" />
+    <Compile Include="DataDefine\Data\BaseInfo.cs" />
+    <Compile Include="DataDefine\Data\Devices\CloudLinkageCtrlInfo.cs" />
+    <Compile Include="DataDefine\Data\Devices\CloudEntranceInfo.cs" />
+    <Compile Include="DataDefine\Data\Devices\CloudGroupCloudLinkageInfo.cs" />
+    <Compile Include="DataDefine\Data\Devices\GroupCloudLinkage.cs" />
+    <Compile Include="DataDefine\Data\Devices\CloudElevatorInfo.cs" />
+    <Compile Include="DataDefine\Data\Devices\DeviceTableInfo.cs" />
+    <Compile Include="DataDefine\Data\Devices\DownTableInfo.cs" />
+    <Compile Include="DataDefine\Data\Devices\GeneralDeviceInfo.cs" />
+    <Compile Include="DataDefine\Data\Devices\LinkageCtrlInfo.cs" />
+    <Compile Include="DataDefine\Data\Devices\GroupLinkageCtrlItemInfo.cs" />
+    <Compile Include="DataDefine\Data\Devices\LinkageCtrlItemInfo.cs" />
+    <Compile Include="DataDefine\Data\Devices\TableInfo.cs" />
+    <Compile Include="DataDefine\Enum\DeviceType.cs" />
+    <Compile Include="FrameWork\FolderBrowserDialogEx\FolderBrowserDialogEx.cs" />
+    <Compile Include="FrameWork\FolderBrowserDialogEx\Win32.cs" />
+    <Compile Include="FrameWork\LogService\frmLog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrameWork\LogService\frmLog.Designer.cs">
+      <DependentUpon>frmLog.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrameWork\LogService\LogConsole.cs" />
+    <Compile Include="FrameWork\LogService\mLogServiceInterface.cs" />
+    <Compile Include="FrameWork\LogService\mTextFileLogService.cs" />
+    <Compile Include="FrameWork\StrUtils.cs" />
+    <Compile Include="FrameWork\UdpListener\UdpListener.cs" />
+    <Compile Include="FrameWork\UtilityTool.cs" />
+    <Compile Include="FrameWork\XmlConfig\ParamsSettingToolConfig.cs" />
+    <Compile Include="FrameWork\XmlConfig\ConfigHelper.cs" />
+    <Compile Include="FrameWork\XmlConfig\GeneralConifg.cs" />
+    <Compile Include="FrameWork\XmlConfig\XmlConfig.cs" />
+    <Compile Include="General\Base\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\Base\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\Base\BaseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="General\Base\BaseUserControl.Designer.cs">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\CustomizeControl\DragLabelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="General\CustomizeControl\DragLabelControl.Designer.cs">
+      <DependentUpon>DragLabelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\CustomizeControl\DragPanelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="General\CustomizeControl\DragPanelControl.Designer.cs">
+      <DependentUpon>DragPanelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\CustomizeControl\FlatSimpleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="General\CustomizeControl\FlatSimpleButton.Designer.cs">
+      <DependentUpon>FlatSimpleButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\General\GeneralForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\General\GeneralForm.Designer.cs">
+      <DependentUpon>GeneralForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\General\GeneralUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="General\General\GeneralUserControl.Designer.cs">
+      <DependentUpon>GeneralUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\Public\ExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\Public\ExportForm.designer.cs">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\Public\ExportXMLConfig.cs" />
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\FloorTable\ExportHelperV2.cs" />
+    <Compile Include="ParamsSettingTool\Devices\CloudGroupLinkageItemUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudGroupLinkageItemUserControl.Designer.cs">
+      <DependentUpon>CloudGroupLinkageItemUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\CloudElevatorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\CloudElevatorUserControl.Designer.cs">
+      <DependentUpon>CloudElevatorUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\FloorTable\CloudFloorTableBaseInfo.cs" />
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\FloorTable\CloudFloorTableInfo.cs" />
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\FloorTable\CloudFloorTableQuickSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\FloorTable\CloudFloorTableQuickSetForm.Designer.cs">
+      <DependentUpon>CloudFloorTableQuickSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\FloorRelation\FloorRelationBaseInfo.cs" />
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\FloorTable\iniFileControl.cs" />
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\FloorTable\JsonHepler.cs" />
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\FloorTable\ReadCloudFloorTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\FloorTable\ReadCloudFloorTableForm.Designer.cs">
+      <DependentUpon>ReadCloudFloorTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\LocalDBOperate.cs" />
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudElevator\WaitForm.Designer.cs">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudEntrance\CloudEntrancelUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudEntrance\CloudEntrancelUserControl.Designer.cs">
+      <DependentUpon>CloudEntrancelUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudIntercom\CloudIntercomUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudIntercom\CloudIntercomUserControl.Designer.cs">
+      <DependentUpon>CloudIntercomUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudLinkCtrl\CloudLinkCtrlUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudLinkCtrl\CloudLinkCtrlUserControl.Designer.cs">
+      <DependentUpon>CloudLinkCtrlUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudLinkCtrl\LinkCtrlParam.cs" />
+    <Compile Include="ParamsSettingTool\Devices\CloudGroupLinkageCtrl\CloudGroupLinkageCtrlUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudGroupLinkageCtrl\CloudGroupLinkageCtrlUserControl.Designer.cs">
+      <DependentUpon>CloudGroupLinkageCtrlUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\FloorRelation\FloorRelationInfo.cs" />
+    <Compile Include="ParamsSettingTool\Devices\FloorRelation\FloorRelationUIObject.cs" />
+    <Compile Include="ParamsSettingTool\Devices\FloorRelation\IlistColumnInterface.cs" />
+    <Compile Include="ParamsSettingTool\Devices\GroupLinkageCtrl\GroupLinkageCtrlUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\GroupLinkageCtrl\GroupLinkageCtrlUserControl.Designer.cs">
+      <DependentUpon>GroupLinkageCtrlUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudElevatorItemUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\CloudElevatorItemUserControl.Designer.cs">
+      <DependentUpon>CloudElevatorItemUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\InputPsd\InputPsdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\InputPsd\InputPsdForm.Designer.cs">
+      <DependentUpon>InputPsdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Public\CommandProcesserHelper.cs" />
+    <Compile Include="ParamsSettingTool\Devices\GeneralDeviceUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\GeneralDeviceUserControl.Designer.cs">
+      <DependentUpon>GeneralDeviceUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\LinkageCtrl\LinkageCtrlUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Devices\LinkageCtrl\LinkageCtrlUserControl.Designer.cs">
+      <DependentUpon>LinkageCtrlUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Main\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Main\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamsSettingTool\Public\AppXmlConfig.cs" />
+    <Compile Include="ParamsSettingTool\Public\CommonUtils.cs" />
+    <Compile Include="ParamsSettingTool\Public\KeyMacOperate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ParamsSettingTool\Public\AppEnv.cs" />
+    <Compile Include="Public\ControlUtilityTool.cs" />
+    <Compile Include="Public\HintProvider\AutoCloseDialog\AutoCloseDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Public\HintProvider\AutoCloseDialog\AutoCloseDialog.designer.cs">
+      <DependentUpon>AutoCloseDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Public\HintProvider\AutoCloseDialog\AutoCloseDialogHelper.cs" />
+    <Compile Include="Public\HintProvider\AutoCloseDialog\HintIconType.cs" />
+    <Compile Include="Public\HintProvider\ConfirmForm\ConfirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Public\HintProvider\ConfirmForm\ConfirmForm.designer.cs">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Public\HintProvider\ConfirmForm\ConfirmFormButtons.cs" />
+    <Compile Include="Public\HintProvider\ConfirmForm\ConfirmFormDefaultButton.cs" />
+    <Compile Include="Public\HintProvider\ConfirmForm\ConfirmFormIcons.cs" />
+    <Compile Include="Public\HintProvider\General\HintGeneralForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Public\HintProvider\General\HintGeneralForm.designer.cs">
+      <DependentUpon>HintGeneralForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Public\HintProvider\HintArgs.cs" />
+    <Compile Include="Public\HintProvider\HintProvider.cs" />
+    <Compile Include="Public\HintProvider\ToolTip\BalloonToolTip.cs" />
+    <Compile Include="Public\HintProvider\WaitingForm\WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Public\HintProvider\WaitingForm\WaitForm.designer.cs">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Public\TripleDESIntf..cs" />
+    <EmbeddedResource Include="General\Base\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\General\GeneralForm.resx">
+      <DependentUpon>GeneralForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\General\GeneralUserControl.resx">
+      <DependentUpon>GeneralUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\Public\ExportForm.resx">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Devices\CloudGroupLinkageItemUserControl.resx">
+      <DependentUpon>CloudGroupLinkageItemUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Devices\CloudElevator\CloudElevatorUserControl.resx">
+      <DependentUpon>CloudElevatorUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Devices\CloudElevator\FloorTable\CloudFloorTableQuickSetForm.resx">
+      <DependentUpon>CloudFloorTableQuickSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Devices\CloudElevator\FloorTable\ReadCloudFloorTableForm.resx">
+      <DependentUpon>ReadCloudFloorTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Devices\CloudElevator\WaitForm.resx">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Devices\CloudEntrance\CloudEntrancelUserControl.resx">
+      <DependentUpon>CloudEntrancelUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Devices\CloudIntercom\CloudIntercomUserControl.resx">
+      <DependentUpon>CloudIntercomUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Devices\CloudLinkCtrl\CloudLinkCtrlUserControl.resx">
+      <DependentUpon>CloudLinkCtrlUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Devices\GeneralDeviceUserControl.resx">
+      <DependentUpon>GeneralDeviceUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Devices\CloudGroupLinkageCtrl\CloudGroupLinkageCtrlUserControl.resx">
+      <DependentUpon>CloudGroupLinkageCtrlUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Devices\GroupLinkageCtrl\GroupLinkageCtrlUserControl.resx">
+      <DependentUpon>GroupLinkageCtrlUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Devices\CloudElevatorItemUserControl.resx">
+      <DependentUpon>CloudElevatorItemUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Devices\LinkageCtrl\LinkageCtrlUserControl.resx">
+      <DependentUpon>LinkageCtrlUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\InputPsd\InputPsdForm.resx">
+      <DependentUpon>InputPsdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParamsSettingTool\Main\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +436,21 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Public\HintProvider\AutoCloseDialog\AutoCloseDialog.resx">
+      <DependentUpon>AutoCloseDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Public\HintProvider\ConfirmForm\ConfirmForm.resx">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Public\HintProvider\General\HintGeneralForm.resx">
+      <DependentUpon>HintGeneralForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Public\HintProvider\WaitingForm\WaitForm.resx">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +463,65 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Max_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaxEx_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Min_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hint_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OK_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Question_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SelectPath_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppIcon_32.ico" />
+    <Content Include="General\General\29585bd351724dff0ee9dace3afc472.png" />
+    <None Include="Resources\AppIcon_32.ico" />
+    <None Include="Resources\AppIcon_32.png" />
+    <None Include="Resources\loading_32.gif" />
+    <None Include="Resources\Close_gray_16.png" />
+    <None Include="Resources\NbgIcon_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
